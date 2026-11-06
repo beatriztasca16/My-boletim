@@ -1,0 +1,154 @@
+
+/* Resete básico de margens e fontes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #111111;
+  line-height: 1.6;
+}
+
+/* Cabeçalho elegante em preto e dourado */
+.header {
+  background-color: #111111;
+  color: #ffffff;
+  padding: 2rem 1rem;
+  border-bottom: 4px solid #c5a059; /* Detalhe em dourado */
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #c5a059; /* Título em dourado */
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #cccccc;
+  margin-top: 0.25rem;
+}
+
+/* Conteúdo principal */
+.container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Grade de Cards de Resumo */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Aparência dos Cards */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-top: 3px solid #111111; /* Topo preto */
+  border-radius: 8px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.card h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #666666;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.card-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #111111;
+}
+
+.card-status {
+  font-size: 0.75rem;
+  color: #2e7d32;
+  font-weight: 600;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+/* Destaque nos cards */
+.card-destaque {
+  border-top-color: #c5a059; /* Dourado */
+}
+
+.card-atencao {
+  border-top-color: #c62828; /* Vermelho discreto */
+}
+
+/* Seção da Tabela */
+.table-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #111111;
+  border-left: 4px solid #c5a059;
+  padding-left: 0.5rem;
+}
+
+/* Garante que a tabela não quebre no celular */
+.table-wrapper {
+  overflow-x: auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+th {
+  background-color: #111111;
+  color: #c5a059; /* Texto dourado no cabeçalho */
+  padding: 0.85rem 1rem;
+  font-weight: 600;
+}
+
+td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #eeeeee;
+  color: #333333;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Situações coloridas na tabela */
+.status-bom {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.status-atencao {
+  color: #c62828;
+  font-weight: 600;
+}
+
+.status-indisponivel {
+  color: #757575;
+  font-style: italic;
+}
