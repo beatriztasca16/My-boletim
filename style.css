@@ -1,4 +1,4 @@
-/* Resete básico de margens e fontes */
+/* Resete básico e tipografia */
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +6,8 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
   color: #111111;
   line-height: 1.6;
 }
@@ -16,19 +16,19 @@ body {
 .header {
   background-color: #111111;
   color: #ffffff;
-  padding: 2rem 1rem;
-  border-bottom: 4px solid #c5a059; /* Detalhe em dourado */
+  padding: 2.5rem 1rem;
+  border-bottom: 4px solid #c5a059;
   text-align: center;
 }
 
 .header h1 {
   font-size: 2rem;
-  color: #c5a059; /* Título em dourado */
+  color: #c5a059;
   letter-spacing: 1px;
 }
 
 .subtitle {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #cccccc;
   margin-top: 0.25rem;
 }
@@ -50,14 +50,14 @@ body {
 
 .acesso-card {
   background-color: #ffffff;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #e2e8f0;
   border-top: 4px solid #c5a059;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 2rem;
   max-width: 400px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
 .acesso-card h2 {
@@ -89,15 +89,16 @@ body {
   padding: 0.75rem;
   font-size: 1.1rem;
   border: 1px solid #cccccc;
-  border-radius: 6px;
+  border-radius: 8px;
   text-align: center;
   letter-spacing: 2px;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .acesso-form input:focus {
   outline: none;
   border-color: #c5a059;
-  box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.2);
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
 }
 
 .acesso-form button {
@@ -105,7 +106,7 @@ body {
   background-color: #111111;
   color: #c5a059;
   border: 1px solid #c5a059;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -129,7 +130,7 @@ body {
   color: #c5a059;
   border: 1px solid #c5a059;
   padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -148,307 +149,25 @@ body {
   margin-bottom: 2.5rem;
 }
 
-/* Aparência dos Cards */
 .card {
   background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-top: 3px solid #111111; /* Topo preto */
-  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  border-top: 3px solid #111111;
+  border-radius: 10px;
   padding: 1.2rem;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
 }
 
 .card h3 {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  color: #666666;
+  color: #64748b;
   margin-bottom: 0.5rem;
   letter-spacing: 0.5px;
-}
-
-.card-value {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #111111;
-}
-
-.card-status {
-  font-size: 0.75rem;
-  color: #2e7d32;
-  font-weight: 600;
-  display: block;
-  margin-top: 0.25rem;
-}
-
-/* Destaque nos cards */
-.card-destaque {
-  border-top-color: #c5a059; /* Dourado */
-}
-
-.card-atencao {
-  border-top-color: #c62828; /* Vermelho discreto */
-}
-
-/* Seção da Tabela */
-.table-section h2 {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  color: #111111;
-  border-left: 4px solid #c5a059;
-  padding-left: 0.5rem;
-}
-
-/* Garante que a tabela não quebre no celular */
-.table-wrapper {
-  overflow-x: auto;
-  background-color: #ffffff;
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 0.95rem;
-}
-
-th {
-  background-color: #111111;
-  color: #c5a059; /* Texto dourado no cabeçalho */
-  padding: 0.85rem 1rem;
-  font-weight: 600;
-}
-
-td {
-  padding: 0.85rem 1rem;
-  border-bottom: 1px solid #eeeeee;
-  color: #333333;
-}
-
-tr:nth-child(even) {
-  background-color: #fafafa;
-}
-
-tr:hover {
-  background-color: #f0f0f0;
-}
-
-/* Situações coloridas na tabela */
-.status-bom {
-  color: #2e7d32;
-  font-weight: 600;
-}
-
-.status-atencao {
-  color: #c62828;
-  font-weight: 600;
-}
-
-.status-indisponivel {
-  color: #757575;
-  font-style: italic;
-}
-
-/* Seção de Edição */
-.edicao-section {
-  margin-top: 2.5rem;
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.edicao-section h2 {
-  font-size: 1.3rem;
-  color: #111111;
-  border-left: 4px solid #c5a059;
-  padding-left: 0.5rem;
-  margin-bottom: 0.25rem;
-}
-
-.edicao-instrucoes {
-  font-size: 0.85rem;
-  color: #666666;
-  margin-bottom: 1.5rem;
-}
-
-.edicao-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.edicao-card-item {
-  background-color: #fafafa;
-  border: 1px solid #e5e5e5;
-  border-radius: 6px;
-  padding: 1rem;
-}
-
-.edicao-card-item h4 {
-  font-size: 1rem;
-  color: #111111;
-  margin-bottom: 0.75rem;
-}
-
-.edicao-campos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 0.75rem;
-}
-
-.campo-grupo {
-  display: flex;
-  flex-direction: column;
-}
-
-.campo-grupo label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #555555;
-  margin-bottom: 0.2rem;
-}
-
-.campo-grupo input {
-  padding: 0.4rem;
-  font-size: 0.9rem;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-}
-
-.campo-grupo input.campo-invalido {
-  border-color: #c62828;
-  background-color: #ffebee;
-}
-
-.edicao-botoes {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.btn-salvar {
-  background-color: #2e7d32;
-  color: #ffffff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.btn-cancelar {
-  background-color: #757575;
-  color: #ffffff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.mensagem-status {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.mensagem-erro {
-  color: #c62828;
-}
-
-.mensagem-sucesso {
-  color: #2e7d32;
-}
-
-.mensagem-info {
-  color: #1565c0;
-}
-
-/* ==========================================================================
-   ESTILOS EXCLUSIVOS DA ÁREA DOS GRÁFICOS (ETAPA 3)
-   ========================================================================== */
-
-.area-graficos {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-bottom: 2.5rem;
-}
-
-.grafico-card {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-top: 3px solid #111111;
-  border-radius: 8px;
-  padding: 1.2rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
-}
-
-.grafico-card h2 {
-  font-size: 1.1rem;
-  color: #111111;
-  margin-bottom: 1rem;
-  border-left: 3px solid #c5a059;
-  padding-left: 0.4rem;
-}
-
-.grafico-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.grafico-header h2 {
-  margin-bottom: 0;
-}
-
-.badge-perigo {
-  background-color: #c62828;
-  color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.grafico-card.card-perigo {
-  border-color: #c62828;
-  border-top: 3px solid #c62828;
-  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.15);
-}
-
-.grafico-container {
-  position: relative;
-  width: 100%;
-  flex: 1;
-  min-height: 280px;
-}
-
-/* Responsividade do Grid dos Gráficos */
-@media (max-width: 992px) {
-  .area-graficos {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 650px) {
-  .area-graficos {
-    grid-template-columns: 1fr;
-  }
-
-  .grafico-container {
-    min-height: 320px;
-  }
 }
