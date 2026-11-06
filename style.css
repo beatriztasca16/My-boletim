@@ -1,4 +1,8 @@
-/* Resete básico e tipografia */
+/* ==========================================================================
+   BOLETIM DIGITAL - DESIGN ULTRA MODERNO (DARK NEON & GLASS)
+   ========================================================================== */
+
+/* Resete Global e Fontes */
 * {
   margin: 0;
   padding: 0;
@@ -7,35 +11,39 @@
 
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background-color: #f8fafc;
-  color: #111111;
+  background-color: #0b0f19;
+  color: #f1f5f9;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
-/* Cabeçalho elegante em preto e dourado */
+/* Cabeçalho Neon Premium */
 .header {
-  background-color: #111111;
+  background: linear-gradient(180deg, #111827 0%, #0b0f19 100%);
   color: #ffffff;
   padding: 2.5rem 1rem;
-  border-bottom: 4px solid #c5a059;
+  border-bottom: 2px solid #c5a059;
+  box-shadow: 0 4px 20px rgba(197, 160, 89, 0.15);
   text-align: center;
 }
 
 .header h1 {
-  font-size: 2rem;
-  color: #c5a059;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #e2c07d;
   letter-spacing: 1px;
+  text-shadow: 0 0 12px rgba(197, 160, 89, 0.3);
 }
 
 .subtitle {
   font-size: 0.95rem;
-  color: #cccccc;
+  color: #94a3b8;
   margin-top: 0.25rem;
 }
 
-/* Conteúdo principal */
+/* Conteúdo Principal */
 .container {
-  max-width: 1100px;
+  max-width: 1150px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
@@ -45,77 +53,81 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3rem 0;
+  margin: 4rem 0;
 }
 
 .acesso-card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
+  background: #151c2c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-top: 4px solid #c5a059;
-  border-radius: 12px;
-  padding: 2rem;
+  border-radius: 16px;
+  padding: 2.5rem;
   max-width: 400px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .acesso-card h2 {
-  font-size: 1.4rem;
-  color: #111111;
+  font-size: 1.5rem;
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
 .acesso-info {
   font-size: 0.95rem;
-  color: #555555;
+  color: #94a3b8;
   margin-bottom: 1.5rem;
 }
 
 .acesso-form {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
   text-align: left;
 }
 
 .acesso-form label {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #333333;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .acesso-form input {
-  padding: 0.75rem;
+  padding: 0.85rem;
   font-size: 1.1rem;
-  border: 1px solid #cccccc;
-  border-radius: 8px;
+  background-color: #0b0f19;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  color: #ffffff;
   text-align: center;
-  letter-spacing: 2px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  letter-spacing: 3px;
+  transition: all 0.2s ease;
 }
 
 .acesso-form input:focus {
   outline: none;
   border-color: #c5a059;
-  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.3);
 }
 
 .acesso-form button {
-  padding: 0.75rem;
-  background-color: #111111;
-  color: #c5a059;
-  border: 1px solid #c5a059;
-  border-radius: 8px;
+  padding: 0.85rem;
+  background: linear-gradient(135deg, #c5a059 0%, #9a7b3e 100%);
+  color: #0b0f19;
+  border: none;
+  border-radius: 10px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .acesso-form button:hover {
-  background-color: #c5a059;
-  color: #111111;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3);
 }
 
 /* Barra de Ações */
@@ -126,48 +138,24 @@ body {
 }
 
 .btn-acao {
-  background-color: #111111;
-  color: #c5a059;
-  border: 1px solid #c5a059;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-weight: 600;
+  background: linear-gradient(135deg, #c5a059 0%, #9a7b3e 100%);
+  color: #0b0f19;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-acao:hover {
-  background-color: #c5a059;
-  color: #111111;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3);
 }
 
-/* Grade de Cards de Resumo */
+/* Cards de Resumo */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2.5rem;
-}
-
-.card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-top: 3px solid #111111;
-  border-radius: 10px;
-  padding: 1.2rem;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-}
-
-.card h3 {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  color: #64748b;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.5px;
-}
+  gap: 1.25rem;
+  margin-bottom
