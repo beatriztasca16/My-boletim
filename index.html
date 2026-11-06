@@ -4,12 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boletim Digital - 9º Ano</title>
-  <!-- Vínculo com o arquivo de estilos (CSS) -->
+  <!-- Fonte Inter do Google Fonts para visual ultra moderno -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Cabeçalho do site -->
+  <!-- Cabeçalho com iluminação fluida -->
   <header class="header">
     <div class="header-container">
       <h1>Boletim Digital</h1>
@@ -22,24 +26,24 @@
     <section id="secao-acesso" class="acesso-section">
       <div class="acesso-card">
         <h2>Acesso ao Boletim</h2>
-        <p class="acesso-info"><strong>Turma:</strong> 9B | <strong>Chamada:</strong> 5</p>
+        <p class="acesso-info"><strong>Turma:</strong> 9B &bull; <strong>Chamada:</strong> 5</p>
         <div class="acesso-form">
-          <label for="input-pin">Digite seu PIN:</label>
-          <input type="password" id="input-pin" placeholder="****" maxlength="10">
-          <button id="btn-entrar" type="button">Entrar</button>
+          <label for="input-pin">Digite seu PIN</label>
+          <input type="password" id="input-pin" placeholder="••••" maxlength="10">
+          <button id="btn-entrar" type="button">Entrar no Sistema</button>
         </div>
         <p id="mensagem-acesso" class="mensagem-status"></p>
       </div>
     </section>
 
-    <!-- Conteúdo do Boletim (inicialmente escondido) -->
+    <!-- Conteúdo do Boletim -->
     <div id="conteudo-boletim" style="display: none;">
       <!-- Barra de Ações -->
       <div class="acoes-bar">
-        <button id="btn-alterar" type="button" class="btn-acao">Alterar dados</button>
+        <button id="btn-alterar" type="button" class="btn-acao">Editar Dados</button>
       </div>
 
-      <!-- Área dos Cards de Resumo -->
+      <!-- Cards de Resumo -->
       <section class="cards-grid">
         <div class="card">
           <h3>Média Geral</h3>
@@ -111,14 +115,12 @@
                 <th>Situação</th>
               </tr>
             </thead>
-            <!-- O corpo da tabela será preenchido dinamicamente pelo JavaScript -->
-            <tbody id="tabela-boletim">
-            </tbody>
+            <tbody id="tabela-boletim"></tbody>
           </table>
         </div>
       </section>
 
-      <!-- Painel de Edição de Dados -->
+      <!-- Painel de Edição -->
       <section id="secao-edicao" class="edicao-section" style="display: none;">
         <h2>Editar Notas e Faltas</h2>
         <p class="edicao-instrucoes">Digite notas de 0 a 10 (ou deixe em branco) e faltas inteiras.</p>
@@ -132,9 +134,7 @@
     </div>
   </main>
 
-  <!-- Biblioteca Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Vínculo com o arquivo de script (JavaScript) -->
   <script src="script.js"></script>
 </body>
 </html>
