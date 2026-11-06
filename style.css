@@ -195,3 +195,177 @@ body {
   font-size: 1.3rem;
   margin-bottom: 1rem;
   color: #111111;
+  border-left: 4px solid #c5a059;
+  padding-left: 0.5rem;
+}
+
+/* Garante que a tabela não quebre no celular */
+.table-wrapper {
+  overflow-x: auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+th {
+  background-color: #111111;
+  color: #c5a059; /* Texto dourado no cabeçalho */
+  padding: 0.85rem 1rem;
+  font-weight: 600;
+}
+
+td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #eeeeee;
+  color: #333333;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Situações coloridas na tabela */
+.status-bom {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.status-atencao {
+  color: #c62828;
+  font-weight: 600;
+}
+
+.status-indisponivel {
+  color: #757575;
+  font-style: italic;
+}
+
+/* Seção de Edição */
+.edicao-section {
+  margin-top: 2.5rem;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.edicao-section h2 {
+  font-size: 1.3rem;
+  color: #111111;
+  border-left: 4px solid #c5a059;
+  padding-left: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.edicao-instrucoes {
+  font-size: 0.85rem;
+  color: #666666;
+  margin-bottom: 1.5rem;
+}
+
+.edicao-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.edicao-card-item {
+  background-color: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.edicao-card-item h4 {
+  font-size: 1rem;
+  color: #111111;
+  margin-bottom: 0.75rem;
+}
+
+.edicao-campos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.75rem;
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-grupo label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #555555;
+  margin-bottom: 0.2rem;
+}
+
+.campo-grupo input {
+  padding: 0.4rem;
+  font-size: 0.9rem;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+.campo-grupo input.campo-invalido {
+  border-color: #c62828;
+  background-color: #ffebee;
+}
+
+.edicao-botoes {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-salvar {
+  background-color: #2e7d32;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-cancelar {
+  background-color: #757575;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mensagem-status {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.mensagem-erro {
+  color: #c62828;
+}
+
+.mensagem-sucesso {
+  color: #2e7d32;
+}
+
+.mensagem-info {
+  color: #1565c0;
+}
