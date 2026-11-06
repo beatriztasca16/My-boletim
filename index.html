@@ -1,11 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletim Digital - 9º Ano</title>
+  <!-- Vínculo com o arquivo de estilos (CSS) -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    Meu boletim
+
+  <!-- Cabeçalho do site -->
+  <header class="header">
+    <div class="header-container">
+      <h1>Boletim Digital</h1>
+      <p class="subtitle">9º Ano | Estudante Exemplo</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Área dos Cards de Resumo -->
+    <section class="cards-grid">
+      <div class="card">
+        <h3>Média Geral</h3>
+        <p class="card-value" id="card-media-geral">—</p>
+      </div>
+
+      <div class="card">
+        <h3>Total de Faltas</h3>
+        <p class="card-value" id="card-total-faltas">—</p>
+      </div>
+
+      <div class="card card-destaque">
+        <h3>Bom Desempenho</h3>
+        <p class="card-value" id="card-bom-desempenho">—</p>
+      </div>
+
+      <div class="card card-atencao">
+        <h3>Atenção</h3>
+        <p class="card-value" id="card-atencao">—</p>
+      </div>
+
+      <div class="card">
+        <h3>Frequência</h3>
+        <p class="card-value" id="card-frequencia">92%</p>
+        <span class="card-status">Frequência adequada</span>
+      </div>
+    </section>
+
+    <!-- Tabela de Disciplinas -->
+    <section class="table-section">
+      <h2>Desempenho por Disciplina</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Disciplina</th>
+              <th>1º Tri</th>
+              <th>2º Tri</th>
+              <th>3º Tri</th>
+              <th>Média</th>
+              <th>Faltas</th>
+              <th>Situação</th>
+            </tr>
+          </thead>
+          <!-- O corpo da tabela será preenchido dinamicamente pelo JavaScript -->
+          <tbody id="tabela-boletim">
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Vínculo com o arquivo de script (JavaScript) -->
+  <script src="script.js"></script>
 </body>
 </html>
