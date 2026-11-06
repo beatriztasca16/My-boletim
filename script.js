@@ -31,6 +31,11 @@ const FREQUENCIA_DEMONSTRATIVA = 92;
 let pinSessao = null;
 let dadosAtuais = [];
 
+// Variáveis globais de instâncias dos gráficos
+let graficoMedias = null;
+let graficoEvolucao = null;
+let graficoFaltas = null;
+
 // Função para normalizar qualquer valor de nota antigo para a escala de 0 a 10
 function normalizarNota(valor) {
   if (valor === null || valor === undefined || valor === "") {
@@ -226,6 +231,7 @@ async function entrarBoletim() {
     document.getElementById("conteudo-boletim").style.display = "block";
 
     renderizarBoletim();
+    atualizarGraficos();
 
   } catch (erro) {
     msgAcesso.textContent = "Não foi possível conectar ao servidor. Tente novamente.";
@@ -401,6 +407,7 @@ async function salvarEdicao() {
     // Sucesso ao salvar
     dadosAtuais = novasDisciplinas;
     renderizarBoletim();
+    atualizarGraficos();
 
     msgEdicao.textContent = "Dados salvos com sucesso!";
     msgEdicao.className = "mensagem-status mensagem-sucesso";
@@ -414,6 +421,237 @@ async function salvarEdicao() {
     msgEdicao.textContent = "Erro ao conectar com o servidor para salvar. Tente novamente.";
     msgEdicao.className = "mensagem-status mensagem-erro";
   }
+}
+
+// ==========================================================================
+// FUNÇÕES DE CAMADA EXCLUSIVA DE LEITURA DOS GRÁFICOS (ETAPA 3)
+// ==========================================================================
+
+function atualizarGraficoMedias() {
+  const canvas = document.getElementById("graficoMediasDisciplinas");
+  if (!canvas) return;
+
+  if (graficoMedias) {
+    graficoMedias.destroy();
+  }
+
+  const rotulos = [];
+  const valoresMedias = [];
+
+  dadosAtuais.forEach(item => {
+    rotulos.push(item.disciplina);
+
+    const n1 = normalizarNota(item.tri1);
+    const n2 = normalizarNota(item.tri2);
+    const n3 = normalizarNota(item.tri3);
+
+    const notasValidas = [n1, n2, n3].filter(n => n !== null);
+
+    if (notasValidas.length > 0) {
+      const soma = notasValidas.reduce((acc, curr) => acc + curr, 0);
+      const media = soma / notasValidas.length;
+      valoresMedias.push(Number(media.toFixed(1)));
+    } else {
+      valoresMedias.push(null);
+    }
+  });
+
+  const ctx = canvas.getContext("2d");
+  graficoMedias = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: rotulos,
+      datasets: [{
+        label: "Média",
+        data: valoresMedias,
+        backgroundColor: "#c5a059",
+        borderColor: "#111111",
+        borderWidth: 1,
+        borderRadius: 4
+      }]
+    },
+    options: {
+      indexAxis: "y",
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const val = context.raw;
+              if (val === null || val === undefined) return " Sem nota";
+              return " " + Number(val).toFixed(1).replace(".", ",");
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          min: 0,
+          max: 10,
+          ticks: { stepSize: 2 }
+        }
+      }
+    }
+  });
+}
+
+function atualizarGraficoEvolucao() {
+  const canvas = document.getElementById("graficoEvolucaoTrimestres");
+  if (!canvas) return;
+
+  if (graficoEvolucao) {
+    graficoEvolucao.destroy();
+  }
+
+  const notasTri1 = [];
+  const notasTri2 = [];
+  const notasTri3 = [];
+
+  dadosAtuais.forEach(item => {
+    const n1 = normalizarNota(item.tri1);
+    const n2 = normalizarNota(item.tri2);
+    const n3 = normalizarNota(item.tri3);
+
+    if (n1 !== null) notasTri1.push(n1);
+    if (n2 !== null) notasTri2.push(n2);
+    if (n3 !== null) notasTri3.push(n3);
+  });
+
+  const mediaTri1 = notasTri1.length > 0 
+    ? Number((notasTri1.reduce((a, b) => a + b, 0) / notasTri1.length).toFixed(1)) 
+    : null;
+
+  const mediaTri2 = notasTri2.length > 0 
+    ? Number((notasTri2.reduce((a, b) => a + b, 0) / notasTri2.length).toFixed(1)) 
+    : null;
+
+  const mediaTri3 = notasTri3.length > 0 
+    ? Number((notasTri3.reduce((a, b) => a + b, 0) / notasTri3.length).toFixed(1)) 
+    : null;
+
+  const ctx = canvas.getContext("2d");
+  graficoEvolucao = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: ["1º Tri", "2º Tri", "3º Tri"],
+      datasets: [{
+        label: "Média Geral",
+        data: [mediaTri1, mediaTri2, mediaTri3],
+        borderColor: "#111111",
+        backgroundColor: "rgba(197, 160, 89, 0.2)",
+        pointBackgroundColor: "#c5a059",
+        pointBorderColor: "#111111",
+        pointRadius: 6,
+        fill: true,
+        tension: 0.2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const val = context.raw;
+              if (val === null || val === undefined) return " Sem notas";
+              return " Média: " + Number(val).toFixed(1).replace(".", ",");
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          min: 0,
+          max: 10,
+          ticks: { stepSize: 2 }
+        }
+      }
+    }
+  });
+}
+
+function atualizarGraficoFaltas() {
+  const canvas = document.getElementById("graficoFaltasTrimestres");
+  if (!canvas) return;
+
+  if (graficoFaltas) {
+    graficoFaltas.destroy();
+  }
+
+  let faltasTri1 = 0;
+  let faltasTri2 = 0;
+  let faltasTri3 = 0;
+
+  dadosAtuais.forEach(item => {
+    if (Array.isArray(item.faltas)) {
+      faltasTri1 += Number(item.faltas[0]) || 0;
+      faltasTri2 += Number(item.faltas[1]) || 0;
+      faltasTri3 += Number(item.faltas[3] !== undefined ? item.faltas[2] : item.faltas[2]) || 0;
+    }
+  });
+
+  const totalFaltasInterno = faltasTri1 + faltasTri2 + faltasTri3;
+  const REFERENCIA_INTERNA = 350;
+  const ePerigo = totalFaltasInterno >= REFERENCIA_INTERNA;
+
+  const cardElement = document.getElementById("card-grafico-faltas");
+  const estadoElement = document.getElementById("estadoFaltas");
+
+  if (cardElement && estadoElement) {
+    if (ePerigo) {
+      cardElement.classList.add("card-perigo");
+      estadoElement.innerHTML = '<span class="badge-perigo">Perigo</span>';
+    } else {
+      cardElement.classList.remove("card-perigo");
+      estadoElement.innerHTML = "";
+    }
+  }
+
+  const ctx = canvas.getContext("2d");
+  graficoFaltas = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["1º Tri", "2º Tri", "3º Tri"],
+      datasets: [{
+        label: "Faltas",
+        data: [faltasTri1, faltasTri2, faltasTri3],
+        backgroundColor: ePerigo ? "#c62828" : "#111111",
+        borderColor: ePerigo ? "#8e0000" : "#c5a059",
+        borderWidth: 1,
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return " " + context.raw + " faltas";
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { precision: 0 }
+        }
+      }
+    }
+  });
+}
+
+function atualizarGraficos() {
+  atualizarGraficoMedias();
+  atualizarGraficoEvolucao();
+  atualizarGraficoFaltas();
 }
 
 // Eventos dos botões
